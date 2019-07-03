@@ -1,0 +1,9 @@
+E:\Workspaces\VS2019\CosmosOS_Stuff\vs2019\Solution\Hypatia\bin\Debug\netcoreapp2.0\cosmos\Hypatia.deps.json
+E:\Workspaces\VS2019\CosmosOS_Stuff\vs2019\Solution\Hypatia\bin\Debug\netcoreapp2.0\cosmos\Hypatia.dll
+E:\Workspaces\VS2019\CosmosOS_Stuff\vs2019\Solution\Hypatia\bin\Debug\netcoreapp2.0\cosmos\Hypatia.pdb
+E:\Workspaces\VS2019\CosmosOS_Stuff\vs2019\Solution\Hypatia\obj\Debug\netcoreapp2.0\cosmos\Hypatia.csprojAssemblyReference.cache
+E:\Workspaces\VS2019\CosmosOS_Stuff\vs2019\Solution\Hypatia\obj\Debug\netcoreapp2.0\cosmos\Hypatia.csproj.CoreCompileInputs.cache
+E:\Workspaces\VS2019\CosmosOS_Stuff\vs2019\Solution\Hypatia\obj\Debug\netcoreapp2.0\cosmos\Hypatia.AssemblyInfoInputs.cache
+E:\Workspaces\VS2019\CosmosOS_Stuff\vs2019\Solution\Hypatia\obj\Debug\netcoreapp2.0\cosmos\Hypatia.AssemblyInfo.cs
+E:\Workspaces\VS2019\CosmosOS_Stuff\vs2019\Solution\Hypatia\obj\Debug\netcoreapp2.0\cosmos\Hypatia.dll
+E:\Workspaces\VS2019\CosmosOS_Stuff\vs2019\Solution\Hypatia\obj\Debug\netcoreapp2.0\cosmos\Hypatia.pdb

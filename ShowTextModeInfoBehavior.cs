@@ -13,10 +13,9 @@ namespace Hypatia
 
         public override void Execute()
         {
-            Console.WriteLine($"Number of rows: {Sys.Global.Console.Rows}\n");
-            Console.WriteLine($"Number of cols: {Sys.Global.Console.Cols}\n");
+            Console.WriteLine($"Number of rows: {Sys.Global.Console.Rows}");
+            Console.WriteLine($"Number of cols: {Sys.Global.Console.Cols}");
             Console.WriteLine($"Foreground Console Color: {Sys.Global.Console.Foreground}");
         }
-
     }
 }

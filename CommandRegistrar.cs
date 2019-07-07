@@ -13,6 +13,29 @@ namespace Hypatia
         static Command startgfx;
         static Command color;
 
+        /// <summary>
+        /// Registers commands, including those requiring instanced kernel access
+        /// </summary>
+        /// <param name="mind">instanced kernel</param>
+        public static void Register(Mind mind)
+        {
+            help = SetupHelpCmd();
+            info = SetUpInfoCmd();
+            reboot = SetUpRebootCmd();
+            startgfx = SetUpStartGfxCmd(mind);
+
+            commands.Add(help);
+            commands.Add(info);
+            commands.Add(reboot);
+            commands.Add(startgfx);
+
+            help.SetBehaviorAt(0, new ListBehavior(GetTextOfCommands() ));
+        }
+
+        /// <summary>
+        /// Utility for getting strings of every command's name and description
+        /// </summary>
+        /// <returns>command names and descriptions as an array of strings</returns>
         private static string[] GetTextOfCommands()
         {
 
@@ -28,33 +51,40 @@ namespace Hypatia
             return commandStrings;
         }
 
+        /// <summary>
+        /// Registers commands
+        /// Excluding startupgfx
+        /// </summary>
         public static void Register()
+        {
+            help = SetupHelpCmd();
+            info = SetUpInfoCmd();
+            reboot = SetUpRebootCmd();
+            //startgfx = SetUpStartGfxCmd();
+
+            commands.Add(help);
+            commands.Add(info);
+            commands.Add(reboot);
+           // commands.Add(startgfx);
+
+            help.SetBehaviorAt(0, new ListBehavior( GetTextOfCommands() ));
+        }
+
+        private static Command SetupHelpCmd()
         {
             Behavior[] behaviors =
             {
                 new ListBehavior()
             };
-
-            help = new Command( "help" , "shows this list of commands" , behaviors );
-            info = SetUpInfoCmd();
-            reboot = SetUpRebootCmd();
-            startgfx = SetUpStartGfxCmd();
-
-            commands.Add(help);
-            commands.Add(info);
-            commands.Add(reboot);
-            commands.Add(startgfx);
-
-
-            help.SetBehaviorAt(0, new ListBehavior( GetTextOfCommands() ));
-
+            var cmd = new Command("help", "shows this list of commands", behaviors);
+            return cmd;
         }
 
-        private static Command SetUpStartGfxCmd()
+        private static Command SetUpStartGfxCmd(Mind mind)
         {
             Behavior[] behaviors =
             {
-                new GraphicsInitBehavior()
+                new GraphicsInitBehavior(mind)
             };
 
             var cmd = new Command("startgfx", "starts graphical mode", behaviors);
@@ -85,10 +115,7 @@ namespace Hypatia
                 {
                     c.ExecuteBehaviors();
                 }
-                else
-                {
-                    Console.WriteLine($"Unrecognized Command: {input}");
-                }
+               
             }
 
         }

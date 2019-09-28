@@ -12,24 +12,38 @@ namespace Hypatia
         static Command reboot;
         static Command startgfx;
         static Command color;
+        static Command read;
 
         /// <summary>
         /// Registers commands, including those requiring instanced kernel access
         /// </summary>
         /// <param name="mind">instanced kernel</param>
-        public static void Register(Mind mind)
+        public static void Register(Kernel mind)
         {
             help = SetupHelpCmd();
             info = SetUpInfoCmd();
             reboot = SetUpRebootCmd();
             startgfx = SetUpStartGfxCmd(mind);
+            read = SetupReadCmd();
 
             commands.Add(help);
             commands.Add(info);
             commands.Add(reboot);
             commands.Add(startgfx);
+            commands.Add(read);
 
             help.SetBehaviorAt(0, new ListBehavior(GetTextOfCommands() ));
+        }
+
+        private static Command SetupReadCmd()
+
+        {
+            Behavior[] behaviors = {
+                new ReadAndPrintBehavior()
+            };
+            var cmd = new Command("read", "reads and prints file contents", behaviors );
+
+            return cmd;
         }
 
         /// <summary>
@@ -80,7 +94,7 @@ namespace Hypatia
             return cmd;
         }
 
-        private static Command SetUpStartGfxCmd(Mind mind)
+        private static Command SetUpStartGfxCmd(Kernel mind)
         {
             Behavior[] behaviors =
             {

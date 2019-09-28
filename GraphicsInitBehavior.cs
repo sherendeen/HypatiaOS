@@ -13,7 +13,7 @@ namespace Hypatia
         /// <summary>
         /// Instanced Kernel Access
         /// </summary>
-        private Mind mind;
+        private Kernel mind;
 
         public GraphicsInitBehavior() { }
 
@@ -21,7 +21,7 @@ namespace Hypatia
         /// GraphicsInitBehavior but with instanced kernel access
         /// </summary>
         /// <param name="mind">instanced kernel access token</param>
-        public GraphicsInitBehavior(Mind mind)
+        public GraphicsInitBehavior(Kernel mind)
         {
             this.mind = mind;
         }
